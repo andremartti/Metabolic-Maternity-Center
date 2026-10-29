@@ -42,13 +42,55 @@ export const LINKS = {
   mapEmbed: `https://maps.google.com/maps?q=${encodeURIComponent('Hospital del Valle, San Pedro Sula, Honduras')}&z=16&output=embed`,
 } as const;
 
-export const NAV = [
-  { id: 'inicio', label: 'Inicio' },
-  { id: 'especialidades', label: 'Especialidades' },
-  { id: 'doctor', label: 'Sobre el doctor' },
-  { id: 'preguntas', label: 'Preguntas frecuentes' },
-  { id: 'contacto', label: 'Contacto' },
-] as const;
+/** Páginas del sitio (navegación por hash: compatible con GitHub Pages sin configuración extra). */
+export const ROUTES = {
+  home: '/',
+  doctor: '/conoce-al-doctor',
+  specialties: '/especialidades',
+  schedule: '/horarios',
+  contact: '/contacto',
+  request: '/solicitar-informacion',
+} as const;
+
+export type RoutePath = (typeof ROUTES)[keyof typeof ROUTES];
+
+export const NAV: { to: RoutePath; label: string }[] = [
+  { to: ROUTES.home, label: 'Inicio' },
+  { to: ROUTES.doctor, label: 'Conoce al doctor' },
+  { to: ROUTES.specialties, label: 'Especialidades' },
+  { to: ROUTES.schedule, label: 'Horarios' },
+  { to: ROUTES.contact, label: 'Contacto' },
+];
+
+/**
+ * Horarios de atención — PENDIENTES DE CONFIRMAR.
+ * Escribe el horario de cada día como texto, p. ej. '8:00 a. m. – 12:00 p. m.' o 'Cerrado'.
+ * Mientras el valor sea null, el sitio muestra «Por confirmar». No inventar horarios.
+ */
+export const SCHEDULE: { day: string; hours: string | null }[] = [
+  { day: 'Lunes', hours: null },
+  { day: 'Martes', hours: null },
+  { day: 'Miércoles', hours: null },
+  { day: 'Jueves', hours: null },
+  { day: 'Viernes', hours: null },
+  { day: 'Sábado', hours: null },
+  { day: 'Domingo', hours: null },
+];
+
+/** Nota opcional bajo la tabla de horarios (p. ej. «Atención con cita previa»). */
+export const SCHEDULE_NOTE: string | null = null;
+
+/**
+ * Formulario «Solicitar información».
+ * Por defecto usa FormSubmit (https://formsubmit.co): envía al correo del centro sin backend propio
+ * ni claves privadas. La primera vez que alguien envíe el formulario, FormSubmit manda un correo
+ * de activación a la bandeja del centro; hay que pulsar «Activate Form» una sola vez.
+ * Alternativa: crear un formulario en Formspree y poner aquí su URL (https://formspree.io/f/XXXX).
+ */
+export const INQUIRY_FORM = {
+  endpoint: `https://formsubmit.co/ajax/${SITE.email}`,
+  subject: 'Nueva solicitud de información desde el sitio web',
+};
 
 /**
  * Contenido pendiente de confirmar por el médico.

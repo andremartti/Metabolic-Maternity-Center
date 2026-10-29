@@ -1,4 +1,5 @@
-import { LINKS, NAV, PENDING, SITE } from '../content/site';
+import { LINKS, NAV, PENDING, ROUTES, SITE } from '../content/site';
+import { Link } from '../router';
 import { Facebook, WhatsApp } from './Icons';
 import { Logo } from './Logo';
 import './Footer.css';
@@ -23,22 +24,25 @@ export function Footer() {
             </div>
           </div>
 
-          <nav className="site-footer__col" aria-label="Secciones del sitio">
-            <h2>Secciones</h2>
+          <nav className="site-footer__col" aria-label="Páginas del sitio">
+            <h2>Páginas</h2>
             <ul>
               {NAV.map((n) => (
-                <li key={n.id}>
-                  <a href={`#${n.id}`}>{n.label}</a>
+                <li key={n.to}>
+                  <Link to={n.to}>{n.label}</Link>
                 </li>
               ))}
+              <li>
+                <Link to={ROUTES.request}>Solicitar información</Link>
+              </li>
             </ul>
           </nav>
 
           <div className="site-footer__col">
             <h2>Especialidades</h2>
             <ul>
-              <li><a href="#endocrinologia">Endocrinología</a></li>
-              <li><a href="#ginecologia">Ginecología</a></li>
+              <li><Link to={ROUTES.specialties}>Endocrinología</Link></li>
+              <li><Link to={ROUTES.specialties}>Ginecología</Link></li>
             </ul>
           </div>
 

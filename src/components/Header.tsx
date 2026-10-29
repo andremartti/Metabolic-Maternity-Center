@@ -1,16 +1,13 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
-import { LINKS, NAV, SITE } from '../content/site';
-import { useActiveSection } from '../hooks/useActiveSection';
-import { Close, Menu, WhatsApp } from './Icons';
+import { LINKS, NAV, ROUTES, SITE } from '../content/site';
+import { Link } from '../router';
+import { Close, Menu, Phone } from './Icons';
 import { Logo } from './Logo';
 import './Header.css';
 
-const NAV_IDS = NAV.map((n) => n.id);
-
-export function Header() {
+export function Header({ path }: { path: string }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const active = useActiveSection(NAV_IDS);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -48,26 +45,26 @@ export function Header() {
   return (
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
       <div className="container site-header__bar">
-        <a href="#inicio" className="site-header__brand" aria-label={`${SITE.brand}, ir al inicio`}>
+        <Link to={ROUTES.home} className="site-header__brand" aria-label={`${SITE.brand}, ir al inicio`}>
           <Logo />
-        </a>
+        </Link>
 
         <nav className="site-nav" aria-label="Navegación principal">
           <ul>
             {NAV.map((item) => (
-              <li key={item.id}>
-                <a href={`#${item.id}`} aria-current={active === item.id ? 'true' : undefined}>
+              <li key={item.to}>
+                <Link to={item.to} aria-current={path === item.to ? 'page' : undefined}>
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
         </nav>
 
         <div className="site-header__actions">
-          <a className="btn btn--sm site-header__cta" href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer">
-            Solicitar una cita
-          </a>
+          <Link to={ROUTES.request} className="btn btn--sm site-header__cta">
+            Solicitar información
+          </Link>
           <button
             ref={toggleRef}
             type="button"
@@ -94,19 +91,19 @@ export function Header() {
         <nav aria-label="Navegación móvil" className="container">
           <ul>
             {NAV.map((item, i) => (
-              <li key={item.id} style={{ '--i': i } as CSSProperties}>
-                <a href={`#${item.id}`} aria-current={active === item.id ? 'true' : undefined}>
+              <li key={item.to} style={{ '--i': i } as CSSProperties}>
+                <Link to={item.to} aria-current={path === item.to ? 'page' : undefined}>
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
           <div className="mobile-menu__foot">
-            <a className="btn" href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer">
-              <WhatsApp /> Solicitar una cita
-            </a>
+            <Link to={ROUTES.request} className="btn">
+              Solicitar información
+            </Link>
             <a className="mobile-menu__phone" href={LINKS.phone}>
-              {SITE.phoneDisplay}
+              <Phone /> {SITE.phoneDisplay}
             </a>
           </div>
         </nav>

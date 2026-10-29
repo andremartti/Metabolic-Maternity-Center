@@ -3,8 +3,6 @@
 *::after { box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-h) + 12px);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -172,7 +170,6 @@ p { text-wrap: pretty; }
 .reveal.is-visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
@@ -199,3 +196,7 @@ p { text-wrap: pretty; }
 
 /* Evita desplazamiento horizontal por detalles decorativos sin romper position: sticky */
 main { overflow-x: clip; }
+
+/* Transición suave entre páginas */
+.page { animation: page-in 0.45s var(--ease) both; }
+@keyframes page-in { from { opacity: 0; } to { opacity: 1; } }

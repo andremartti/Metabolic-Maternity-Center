@@ -96,3 +96,22 @@ export const ArrowUpRight = (p: IconProps) => (
     <path d="M7 17 17 7M8 7h9v9" />
   </svg>
 );
+
+export const Clock = (p: IconProps) => (
+  <svg {...base(p)}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 7v5l3.5 2" />
+  </svg>
+);
+
+export const Send = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M21 3 10.5 13.5M21 3l-6.5 18-4-7.5L3 9.5 21 3Z" />
+  </svg>
+);
+
+export const Check = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="m5 12.5 4.5 4.5L19 7.5" />
+  </svg>
+);

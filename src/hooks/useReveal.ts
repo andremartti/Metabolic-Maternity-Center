@@ -2,12 +2,12 @@ import { useEffect } from 'react';
 
 /**
  * Aplica la clase `is-visible` a los elementos `.reveal` cuando entran en pantalla.
- * Si el usuario prefiere movimiento reducido o el navegador no soporta
- * IntersectionObserver, todo se muestra de inmediato.
+ * Se vuelve a ejecutar al cambiar de página (`key`). Con movimiento reducido
+ * o sin IntersectionObserver, todo se muestra de inmediato.
  */
-export function useReveal() {
+export function useReveal(key: string) {
   useEffect(() => {
-    const items = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
+    const items = Array.from(document.querySelectorAll<HTMLElement>('.reveal:not(.is-visible)'));
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reduced || !('IntersectionObserver' in window)) {
@@ -24,10 +24,10 @@ export function useReveal() {
           }
         });
       },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.12 },
+      { rootMargin: '0px 0px -6% 0px', threshold: 0.1 },
     );
 
     items.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [key]);
 }

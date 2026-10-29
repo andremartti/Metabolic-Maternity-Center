@@ -1,0 +1,46 @@
+.schedule {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  box-shadow: var(--shadow);
+}
+.schedule__head { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.4rem; }
+.schedule__head > div { display: grid; gap: 0.45rem; justify-items: start; }
+.schedule__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+}
+.schedule__icon svg { width: 24px; height: 24px; }
+.schedule__title { font-family: var(--font-serif); font-weight: 420; font-size: 1.6rem; color: var(--color-primary); line-height: 1.15; }
+.schedule__table { width: 100%; border-collapse: collapse; }
+.schedule__table th,
+.schedule__table td { padding: 0.95rem 0; border-top: 1px solid var(--color-border); text-align: left; }
+.schedule__table th { font-weight: 700; color: var(--color-text); }
+.schedule__table td { text-align: right; font-weight: 600; color: var(--color-primary-strong); }
+.schedule__table td.is-pending { color: var(--color-muted-text); font-weight: 500; font-style: italic; }
+.schedule__table tr.is-today th,
+.schedule__table tr.is-today td { background: var(--color-primary-soft); }
+.schedule__table tr.is-today th { padding-left: 0.9rem; border-radius: 10px 0 0 10px; }
+.schedule__table tr.is-today td { padding-right: 0.9rem; border-radius: 0 10px 10px 0; }
+.schedule__today {
+  margin-left: 0.6rem;
+  padding: 0.12rem 0.55rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-strong);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: 2px;
+}
+.schedule__note { margin-top: 1.2rem; font-size: var(--fs-sm); color: var(--color-muted-text); }
+.schedule--compact { box-shadow: none; }
+.schedule--compact .schedule__table th,
+.schedule--compact .schedule__table td { padding-block: 0.7rem; }

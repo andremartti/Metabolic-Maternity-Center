@@ -1,0 +1,25 @@
+.map-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: #fff;
+}
+.map-card iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: var(--color-surface);
+}
+.map-card__body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem 1.4rem;
+}
+.map-card__place { display: flex; gap: 0.75rem; align-items: flex-start; color: var(--color-muted-text); }
+.map-card__place svg { width: 22px; height: 22px; color: var(--color-accent-strong); flex: none; margin-top: 2px; }
+.map-card__place strong { display: block; color: var(--color-primary-strong); }
+.map-card__actions { display: flex; gap: 0.6rem; }

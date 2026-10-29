@@ -1,0 +1,211 @@
+/* --- Hero ------------------------------------------------------------------ */
+.home-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(2.5rem, 1rem + 5vw, 5rem) clamp(4rem, 2rem + 5vw, 6.5rem);
+}
+.home-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto auto;
+  width: min(58vw, 820px);
+  height: 100%;
+  background: var(--color-background-soft);
+  border-bottom-left-radius: 48% 30%;
+  z-index: -1;
+}
+.home-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2.5rem, 1rem + 5vw, 6rem);
+  align-items: center;
+}
+.home-hero__copy { display: grid; gap: 1.4rem; justify-items: start; }
+.home-hero__name {
+  font-weight: 800;
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+.display {
+  font-family: var(--font-serif);
+  font-size: var(--fs-display);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.018em;
+  color: var(--color-primary);
+  font-variation-settings: 'opsz' 144;
+  max-width: 12ch;
+}
+.display:focus { outline: none; }
+.home-hero__lead { max-width: 30rem; }
+.home-hero__actions { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 0.3rem; }
+
+.home-hero__visual { position: relative; padding: 0 0 2rem 2rem; }
+.home-hero__photo {
+  aspect-ratio: 4 / 5;
+  border-radius: 999px 999px var(--radius-lg) var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.home-hero__ring {
+  position: absolute;
+  top: -1.5rem; right: -1.5rem;
+  width: 42%; aspect-ratio: 1;
+  border: 1.5px solid var(--color-primary);
+  border-radius: 50%;
+  opacity: 0.35;
+}
+.home-hero__dot {
+  position: absolute;
+  left: 0; bottom: 4.5rem;
+  width: clamp(64px, 8vw, 96px); aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color-accent);
+  z-index: 2;
+}
+.home-hero__badge {
+  position: absolute;
+  right: 1.5rem; bottom: 0;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.2rem;
+  background: #fff;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--color-primary-strong);
+}
+.home-hero__badge svg { width: 18px; height: 18px; color: var(--color-accent-strong); }
+
+/* --- Accesos --------------------------------------------------------------- */
+.home-explore__title { margin-bottom: clamp(2rem, 1rem + 3vw, 3.5rem); }
+.explore {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1.25rem;
+}
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: clamp(1.6rem, 1rem + 2vw, 2.6rem);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--color-text);
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.tile:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.tile__kicker { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.16em; color: var(--color-accent-strong); }
+.tile__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 1.2rem + 1.6vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--color-primary);
+}
+.tile__text { color: var(--color-muted-text); }
+.tile__more {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 700;
+  color: var(--color-primary-strong);
+}
+.tile__more svg { width: 18px; height: 18px; transition: transform 0.3s var(--ease); }
+.tile:hover .tile__more svg { transform: translateX(4px); }
+
+.tile--doctor {
+  grid-row: span 2;
+  min-height: 560px;
+  padding: 0;
+  justify-content: flex-end;
+  background: var(--color-surface);
+}
+.tile .tile__photo { position: absolute; inset: 0; z-index: -1; }
+.tile__photo img { object-position: 50% 18% !important; }
+.tile--doctor .tile__body {
+  display: grid;
+  gap: 0.4rem;
+  margin: 1.25rem;
+  padding: 1.5rem 1.6rem;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius);
+}
+.tile--doctor .tile__more { padding-top: 0.6rem; }
+
+.tile--spec { background: var(--color-primary); color: #fff; }
+.tile--spec .tile__kicker { color: #ffd2b3; }
+.tile--spec .tile__title { color: #fff; }
+.tile--spec .tile__more { color: #fff; }
+.tile--spec::after {
+  content: '';
+  position: absolute;
+  right: -70px; bottom: -90px;
+  width: 240px; aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  z-index: -1;
+}
+.tile__list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem; }
+.tile__list span {
+  padding: 0.4rem 0.95rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.tile--hours { background: var(--color-accent-soft); }
+.tile--hours .tile__title { padding-right: 4.5rem; }
+.tile__icon {
+  position: absolute;
+  top: clamp(1.6rem, 1rem + 2vw, 2.6rem);
+  right: clamp(1.6rem, 1rem + 2vw, 2.6rem);
+  display: grid;
+  place-items: center;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--color-accent-strong);
+}
+.tile__icon svg { width: 26px; height: 26px; }
+
+/* --- Contacto breve -------------------------------------------------------- */
+.home-contact { padding-block: clamp(4rem, 2.5rem + 5vw, 7rem); }
+.home-contact__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-bottom: clamp(1.8rem, 1rem + 2vw, 2.8rem);
+}
+
+@media (max-width: 900px) {
+  .home-hero::before { width: 100%; height: 55%; inset: auto 0 0 0; border-radius: 40% 40% 0 0 / 14% 14% 0 0; }
+  .home-hero__grid { grid-template-columns: 1fr; }
+  .display { max-width: 14ch; }
+  .home-hero__visual { max-width: 460px; width: 100%; margin-inline: auto; padding: 0 0 2rem 1.25rem; }
+  .explore { grid-template-columns: 1fr; }
+  /* En móvil la foto ya aparece en el hero: el acceso al doctor se muestra sin repetirla */
+  .tile--doctor { grid-row: auto; min-height: 0; background: var(--color-primary-soft); }
+  .tile--doctor .tile__photo { display: none; }
+  .tile--doctor .tile__body { margin: 0; background: transparent; backdrop-filter: none; padding: 1.6rem; }
+}
+@media (max-width: 560px) {
+  .home-hero__actions .btn { width: 100%; }
+  .home-hero__ring { top: -0.75rem; right: -0.5rem; }
+  .home-hero__badge { right: 0.5rem; }
+}

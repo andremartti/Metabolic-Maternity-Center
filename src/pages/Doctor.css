@@ -1,0 +1,66 @@
+.doctor { padding-bottom: var(--section-y); }
+.doctor__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 1rem + 6vw, 7rem);
+  align-items: start;
+}
+.doctor__portrait { position: relative; margin: 0; isolation: isolate; }
+.doctor__photo,
+.doctor__placeholder {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 20%;
+  border-radius: 999px 999px var(--radius-lg) var(--radius-lg);
+  background: var(--color-surface);
+}
+.doctor__placeholder { display: grid; place-items: center; border: 1.5px dashed #c9d9e6; }
+.doctor__accent {
+  position: absolute;
+  right: -1.5rem; bottom: 3rem;
+  width: 22%; aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color-accent);
+  z-index: -1;
+}
+
+.doctor__copy { display: grid; gap: 2.2rem; padding-top: 1rem; }
+.doctor__facts { margin: 0; display: grid; border-top: 1px solid var(--color-border); }
+.doctor__facts > div {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.doctor__facts dt {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+  padding-top: 0.2rem;
+}
+.doctor__facts dd { margin: 0; font-weight: 700; color: var(--color-primary-strong); }
+.doctor__facts dd span { display: block; font-weight: 500; color: var(--color-muted-text); font-size: var(--fs-sm); }
+
+.doctor__block { display: grid; gap: 0.7rem; }
+.doctor__block h2 { font-family: var(--font-serif); font-weight: 420; font-size: 1.6rem; color: var(--color-primary); }
+.doctor__block p { color: var(--color-muted-text); }
+.doctor__block ul { margin: 0; padding-left: 1.1rem; }
+.doctor__block li::marker { color: var(--color-accent); }
+.doctor__pending { display: grid; justify-items: start; gap: 0.6rem; font-size: var(--fs-sm); }
+
+.doctor__actions { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+
+@media (max-width: 900px) {
+  .doctor__grid { grid-template-columns: 1fr; }
+  .doctor__portrait { max-width: 340px; }
+}
+@media (max-width: 480px) {
+  .doctor__facts > div { grid-template-columns: 1fr; gap: 0.3rem; }
+  .doctor__actions .btn { width: 100%; }
+  .doctor__accent { right: -0.5rem; }
+}

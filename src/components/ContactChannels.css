@@ -1,0 +1,63 @@
+.channels {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.channel {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 0.35rem;
+  padding: clamp(1.5rem, 1rem + 1.5vw, 2.2rem);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.channel:hover { border-color: rgba(8, 119, 201, 0.25); box-shadow: var(--shadow); }
+.channel__icon {
+  display: grid;
+  place-items: center;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  margin-bottom: 0.9rem;
+}
+.channel__icon svg { width: 22px; height: 22px; }
+.channel--phone .channel__icon { background: var(--color-accent-soft); color: var(--color-accent-strong); }
+.channel__purpose {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+}
+.channel__title { font-family: var(--font-serif); font-weight: 420; font-size: 1.55rem; color: var(--color-primary); line-height: 1.2; }
+.channel__value {
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  margin-bottom: 1.1rem;
+  overflow-wrap: anywhere;
+}
+a.channel__value:hover { color: var(--color-primary-strong); text-decoration: underline; text-underline-offset: 3px; }
+.channel__value--email { font-size: var(--fs-sm); }
+.channel .btn { margin-top: auto; }
+.channel .btn svg { width: 18px; height: 18px; }
+
+.channels--compact .channel { padding: 1.4rem 1.5rem; }
+.channels--compact .channel__icon { width: 44px; height: 44px; margin-bottom: 0.6rem; }
+.channels--compact .channel__title { font-size: 1.3rem; }
+
+@media (max-width: 860px) {
+  .channels { grid-template-columns: 1fr; }
+  .channel { grid-template-columns: auto 1fr; column-gap: 1rem; align-items: center; }
+  .channel__icon { grid-row: span 3; margin: 0; align-self: start; }
+  .channel .btn, .channel__value { grid-column: 2; }
+  .channel__purpose, .channel__title { grid-column: 2; }
+  .channel__value { margin-bottom: 0.6rem; }
+}
