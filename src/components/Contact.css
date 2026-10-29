@@ -59,6 +59,30 @@
 }
 .contact__list a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
+.contact__map {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+.contact__map iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 0;
+  background: var(--color-surface);
+}
+.contact__map-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+.contact__map-actions .btn { flex: 1 1 auto; }
+.contact__map-actions svg { width: 18px; height: 18px; }
+
 .contact__side { position: relative; }
 .contact__photo { aspect-ratio: 16 / 11; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
 .contact__cta {

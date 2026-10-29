@@ -1,8 +1,20 @@
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+}
+.logo__symbol {
+  height: 46px;
+  width: auto;
+  flex: none;
+  /* el archivo trae fondo blanco: se integra sin halo sobre fondos blancos */
+  mix-blend-mode: multiply;
+}
+.logo__text {
   display: inline-grid;
   gap: 0.15rem;
   line-height: 1.05;
-  text-decoration: none;
 }
 .logo__name {
   display: inline-flex;
@@ -37,10 +49,10 @@
 .logo--inverse .logo__amp,
 .logo--inverse .logo__sub { color: rgba(255, 255, 255, 0.72); }
 
-.logo-img { height: 48px; width: auto; }
-.logo-img--compact { height: 40px; }
 
-@media (max-width: 380px) {
-  .logo__name { font-size: 1rem; }
-  .logo__sub { font-size: 0.6rem; letter-spacing: 0.1em; }
+@media (max-width: 480px) {
+  .logo { gap: 0.45rem; }
+  .logo__symbol { height: 38px; }
+  .logo__name { font-size: 0.94rem; gap: 0.22em; }
+  .logo__sub { font-size: 0.54rem; letter-spacing: 0.06em; }
 }

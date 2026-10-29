@@ -55,6 +55,24 @@ export function Contact() {
               </li>
             </ul>
           </address>
+
+          <div className="contact__map reveal">
+            <iframe
+              src={LINKS.mapEmbed}
+              title={`Mapa: ${SITE.location.place}, ${SITE.location.city}`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            <div className="contact__map-actions">
+              <a className="btn btn--ghost btn--sm" href={LINKS.googleMaps} target="_blank" rel="noopener noreferrer">
+                <MapPin /> Abrir en Google Maps
+              </a>
+              <a className="btn btn--ghost btn--sm" href={LINKS.waze} target="_blank" rel="noopener noreferrer">
+                <MapPin /> Ir con Waze
+              </a>
+            </div>
+          </div>
         </div>
 
         <div className="contact__side">

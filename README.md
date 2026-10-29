@@ -36,18 +36,18 @@ Comando de build `npm run build`, carpeta de salida `dist`. También se puede su
 | Título SEO, descripción, Open Graph, datos estructurados | `index.html` |
 
 ### Contenido provisional (identificado en pantalla)
-- **Logotipo:** se muestra un logotipo tipográfico provisional con el nombre y los colores de la marca.
-  Para usar el oficial, copia el archivo a `public/brand/` (SVG o PNG con fondo transparente) y define
-  `PENDING.logo = 'brand/logo.svg'`. El archivo se muestra tal cual, sin alterarlo.
-- **Favicon** (`public/favicon.svg`, `public/apple-touch-icon.png`): monograma provisional; sustituir por el símbolo oficial.
-- **Fotografía, biografía y credenciales del doctor:** aparecen como espacios reservados con la etiqueta
-  "pendiente". Al completar `PENDING.doctorPhoto`, `PENDING.biography` y `PENDING.credentials` se muestran automáticamente.
+- **Logotipo:** símbolo oficial (monograma JG) en `public/brand/` (original y versión de 160 px de alto, solo recortado
+  el margen blanco, sin alterar colores ni proporciones), acompañado del nombre de la marca en texto.
+  Favicons e ícono de iOS generados a partir del mismo símbolo. Si se dispone de una versión SVG o con fondo transparente, sustituirla.
+- **Fotografía del doctor:** retrato oficial en `public/images/dr-javier-giron-*.webp` (hero y sección del doctor).
+- **Biografía y credenciales del doctor:** aparecen como espacios reservados con la etiqueta "pendiente".
+  Al completar `PENDING.biography` y `PENDING.credentials` se muestran automáticamente.
 - **Fotografías generales:** imágenes ilustrativas de Unsplash (licencia Unsplash) cargadas desde su CDN.
   No representan al consultorio ni a su personal. Recomendado: descargarlas o sustituirlas por fotos propias
   autorizadas en `public/images/` (formato WebP, ~1400 px de ancho) y actualizar `src/content/images.ts`.
   Si una imagen no carga, se muestra una composición gráfica con los colores de la marca.
 - **Política de privacidad:** el enlace del pie solo aparece cuando se define `PENDING.privacyPolicyUrl`.
-- **Mapa:** no se incluye hasta confirmar la dirección exacta del consultorio.
+- **Mapa:** Google Maps incrustado y enlaces a Google Maps / Waze ubican el Hospital del Valle por nombre (`LINKS` en `src/content/site.ts`). No se indica piso ni número de consultorio.
 - **Dominio:** al tenerlo, añade `<link rel="canonical">`, `og:url` y convierte `og:image` en URL absoluta en `index.html`.
 
 ## Reglas de contenido

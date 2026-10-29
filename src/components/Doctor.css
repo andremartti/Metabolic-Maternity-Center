@@ -17,6 +17,7 @@
   border-radius: 999px 999px var(--radius-lg) var(--radius-lg);
   object-fit: cover;
 }
+.doctor__photo { object-position: 50% 20%; background: var(--color-surface); }
 .doctor__placeholder {
   display: grid;
   place-content: center;

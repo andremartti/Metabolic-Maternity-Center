@@ -1,7 +1,8 @@
 /**
  * Fotografías del sitio.
  *
- * Provisional: fotografías de Unsplash (licencia Unsplash, uso comercial permitido) servidas desde su CDN.
+ * hero: fotografía oficial del Dr. Girón proporcionada por el cliente (public/images).
+ * Resto, provisional: fotografías de Unsplash (licencia Unsplash, uso comercial permitido) servidas desde su CDN.
  * Son imágenes genéricas de entornos clínicos y no representan al consultorio, sus instalaciones
  * ni a su personal. Para producción se recomienda descargarlas (o sustituirlas por fotografías propias
  * autorizadas), guardarlas en /public/images en formato .webp y cambiar `src` por la ruta local,
@@ -13,6 +14,8 @@
 
 export type PhotoAsset = {
   src: string;
+  /** srcset para imágenes locales, p. ej. 'images/a-640.webp 640w, images/a-1000.webp 1000w' */
+  srcSet?: string;
   alt: string;
   /** Punto focal para object-position */
   focus?: string;
@@ -22,9 +25,10 @@ const unsplash = (id: string) => `https://images.unsplash.com/${id}?auto=format&
 
 export const PHOTOS = {
   hero: {
-    src: unsplash('photo-1631217868264-e5b90bb7e133'),
-    alt: 'Consultorio médico moderno y luminoso (fotografía ilustrativa)',
-    focus: '50% 50%',
+    src: 'images/dr-javier-giron-1000.webp',
+    srcSet: 'images/dr-javier-giron-640.webp 640w, images/dr-javier-giron-1000.webp 1000w',
+    alt: 'Dr. Javier Girón Alfaro, endocrinólogo, con saco azul marino y camisa blanca',
+    focus: '50% 30%',
   },
   intro: {
     src: unsplash('photo-1551601651-2a8555f1a136'),

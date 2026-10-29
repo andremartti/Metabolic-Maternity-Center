@@ -25,8 +25,16 @@ const QUESTIONS: { q: string; a: ReactNode }[] = [
     q: '¿Dónde se encuentra el consultorio?',
     a: (
       <p>
-        El consultorio se encuentra en el {SITE.location.place}, en {SITE.location.city}, {SITE.location.country}. Para
-        recibir indicaciones precisas sobre cómo llegar, comunícate por WhatsApp o por teléfono.
+        El consultorio se encuentra en el {SITE.location.place}, en {SITE.location.city}, {SITE.location.country}. Puedes
+        abrir la ubicación en{' '}
+        <a href={LINKS.googleMaps} target="_blank" rel="noopener noreferrer">
+          Google Maps
+        </a>{' '}
+        o{' '}
+        <a href={LINKS.waze} target="_blank" rel="noopener noreferrer">
+          Waze
+        </a>
+        . Para indicaciones sobre cómo llegar al consultorio dentro del hospital, comunícate por WhatsApp o por teléfono.
       </p>
     ),
   },

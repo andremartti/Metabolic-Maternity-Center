@@ -36,6 +36,10 @@ export const LINKS = {
   phone: `tel:${SITE.phoneE164}`,
   email: `mailto:${SITE.email}?subject=${encodeURIComponent('Solicitud de información — Dr. Javier Girón Alfaro')}`,
   facebook: SITE.facebook,
+  googleMaps: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Hospital del Valle, San Pedro Sula, Honduras')}`,
+  waze: `https://waze.com/ul?q=${encodeURIComponent('Hospital del Valle San Pedro Sula')}&navigate=yes`,
+  /** Mapa incrustado (sin API key). Ubica el hospital por nombre; no se fijan coordenadas ni consultorio. */
+  mapEmbed: `https://maps.google.com/maps?q=${encodeURIComponent('Hospital del Valle, San Pedro Sula, Honduras')}&z=16&output=embed`,
 } as const;
 
 export const NAV = [
@@ -52,14 +56,14 @@ export const NAV = [
  * (o lo omite) en lugar de inventar información.
  */
 export const PENDING = {
-  /** Ruta a la fotografía oficial autorizada, p. ej. 'images/dr-giron.webp' */
-  doctorPhoto: null as string | null,
+  /** Fotografía oficial autorizada del doctor. */
+  doctorPhoto: 'images/dr-javier-giron-1000.webp' as string | null,
   /** Biografía profesional confirmada (párrafos). */
   biography: null as string[] | null,
   /** Credenciales verificadas (formación, colegiación, membresías). */
   credentials: null as string[] | null,
-  /** Ruta al logotipo oficial, p. ej. 'brand/logo.svg'. Si es null se usa el logotipo tipográfico provisional. */
-  logo: null as string | null,
+  /** Símbolo oficial (monograma JG). Original sin alterar en public/brand/logo-symbol.png. */
+  logo: 'brand/logo-symbol-160.png' as string | null,
   /** URL de la política de privacidad revisada. Si es null, el enlace no se muestra. */
   privacyPolicyUrl: null as string | null,
 };

@@ -11,7 +11,11 @@ export function Doctor() {
             <img
               className="doctor__photo"
               src={PENDING.doctorPhoto}
-              alt={`Fotografía del ${SITE.doctor}`}
+              srcSet="images/dr-javier-giron-640.webp 640w, images/dr-javier-giron-1000.webp 1000w"
+              sizes="(max-width: 900px) 360px, 40vw"
+              width={1000}
+              height={1000}
+              alt={`Retrato del ${SITE.doctor}`}
               loading="lazy"
               decoding="async"
             />

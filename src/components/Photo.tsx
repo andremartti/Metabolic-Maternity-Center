@@ -27,7 +27,7 @@ export function Photo({
 
   const srcSet = isUnsplash(photo.src)
     ? widths.map((w) => `${photo.src}&w=${w} ${w}w`).join(', ')
-    : undefined;
+    : photo.srcSet;
   const src = isUnsplash(photo.src) ? `${photo.src}&w=${widths[1] ?? widths[0]}` : photo.src;
 
   return (
