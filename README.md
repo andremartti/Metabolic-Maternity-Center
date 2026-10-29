@@ -17,8 +17,8 @@ npm run preview   # sirve el build de producción en http://localhost:4173
 ## Publicar
 
 ### GitHub Pages (configurado)
-1. En GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-2. Cada `push` a `main` ejecuta `.github/workflows/deploy.yml`, compila y publica el sitio.
+1. Cada `push` a `main` ejecuta `.github/workflows/deploy.yml`, que compila el sitio y lo publica en la rama `gh-pages`.
+2. GitHub Pages sirve la rama `gh-pages` (Settings → Pages → Source: *Deploy from a branch* → `gh-pages` / `root`).
 3. La URL será `https://<usuario>.github.io/<repositorio>/`. El build usa rutas relativas (`base: './'`),
    así que funciona igual en un subdirectorio o en un dominio propio.
 
