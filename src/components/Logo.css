@@ -1,0 +1,46 @@
+.logo {
+  display: inline-grid;
+  gap: 0.15rem;
+  line-height: 1.05;
+  text-decoration: none;
+}
+.logo__name {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  gap: 0.28em;
+  font-weight: 800;
+  font-size: 1.12rem;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+}
+.logo__word--blue { color: var(--color-primary); }
+.logo__word--orange { color: var(--color-accent); }
+.logo__word--grey { color: var(--color-muted); font-weight: 600; }
+.logo__amp {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-muted);
+}
+.logo__sub {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+}
+
+.logo--inverse .logo__word--blue { color: #fff; }
+.logo--inverse .logo__word--orange { color: #ffb27f; }
+.logo--inverse .logo__word--grey,
+.logo--inverse .logo__amp,
+.logo--inverse .logo__sub { color: rgba(255, 255, 255, 0.72); }
+
+.logo-img { height: 48px; width: auto; }
+.logo-img--compact { height: 40px; }
+
+@media (max-width: 380px) {
+  .logo__name { font-size: 1rem; }
+  .logo__sub { font-size: 0.6rem; letter-spacing: 0.1em; }
+}

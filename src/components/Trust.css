@@ -1,0 +1,80 @@
+.trust { padding-block: 0; }
+.trust__panel {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  padding: clamp(2.5rem, 1.2rem + 5vw, 5.5rem);
+  border-radius: var(--radius-lg);
+  background: var(--color-primary);
+  color: #fff;
+}
+.trust__panel::before,
+.trust__panel::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+}
+.trust__panel::before {
+  width: 420px; aspect-ratio: 1;
+  right: -140px; top: -200px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+}
+.trust__panel::after {
+  width: 120px; aspect-ratio: 1;
+  left: -40px; bottom: -40px;
+  background: var(--color-accent);
+}
+.trust__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1rem;
+}
+.trust__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 3rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+.trust__title em { font-style: italic; color: #ffd2b3; }
+
+.trust__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.4rem 3rem;
+}
+.trust__list li { display: grid; gap: 0.55rem; align-content: start; }
+.trust__icon {
+  display: grid;
+  place-items: center;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  margin-bottom: 0.4rem;
+}
+.trust__icon svg { width: 22px; height: 22px; }
+.trust__list h3 { font-size: 1.08rem; font-weight: 700; line-height: 1.35; }
+.trust__list p { font-size: var(--fs-sm); color: rgba(255, 255, 255, 0.88); line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .trust__panel { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .trust .container { padding-inline: 0.75rem; }
+  .trust__list { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 560px) {
+  .trust__panel::after { width: 72px; left: auto; right: -24px; bottom: -24px; }
+  .trust__panel { padding-bottom: 3.5rem; }
+}
