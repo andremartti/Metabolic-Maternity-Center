@@ -55,7 +55,7 @@ export function Home() {
 
           <div className="explore">
             <Link to={ROUTES.doctor} className="tile tile--doctor reveal">
-              <Photo photo={PHOTOS.hero} className="tile__photo" sizes="(max-width: 900px) 92vw, 40vw" />
+              <img className="tile__symbol" src="brand/logo-symbol-160.png" alt="" width={199} height={160} />
               <span className="tile__body">
                 <span className="tile__kicker">01</span>
                 <span className="tile__title">Conoce al doctor</span>

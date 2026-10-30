@@ -127,23 +127,30 @@
 
 .tile--doctor {
   grid-row: span 2;
-  min-height: 560px;
-  padding: 0;
+  min-height: 460px;
   justify-content: flex-end;
-  background: var(--color-surface);
+  background: var(--color-background-soft);
+  border: 1px solid var(--color-border);
 }
-.tile .tile__photo { position: absolute; inset: 0; z-index: -1; }
-.tile__photo img { object-position: 50% 18% !important; }
-.tile--doctor .tile__body {
-  display: grid;
-  gap: 0.4rem;
-  margin: 1.25rem;
-  padding: 1.5rem 1.6rem;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(8px);
-  border-radius: var(--radius);
+.tile--doctor::before {
+  /* geometría de marca en lugar de repetir la fotografía del hero */
+  content: '';
+  position: absolute;
+  right: -90px; top: -90px;
+  width: 340px; aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  z-index: -1;
 }
-.tile--doctor .tile__more { padding-top: 0.6rem; }
+.tile__symbol {
+  position: absolute;
+  right: clamp(1.6rem, 1rem + 2vw, 2.6rem);
+  top: clamp(1.6rem, 1rem + 2vw, 2.6rem);
+  width: auto;
+  height: clamp(72px, 4rem + 4vw, 120px);
+  mix-blend-mode: multiply;
+}
+.tile--doctor .tile__body { display: grid; gap: 0.4rem; }
 
 .tile--spec { background: var(--color-primary); color: #fff; }
 .tile--spec .tile__kicker { color: #ffd2b3; }
@@ -200,9 +207,7 @@
   .home-hero__visual { max-width: 460px; width: 100%; margin-inline: auto; padding: 0 0 2rem 1.25rem; }
   .explore { grid-template-columns: 1fr; }
   /* En móvil la foto ya aparece en el hero: el acceso al doctor se muestra sin repetirla */
-  .tile--doctor { grid-row: auto; min-height: 0; background: var(--color-primary-soft); }
-  .tile--doctor .tile__photo { display: none; }
-  .tile--doctor .tile__body { margin: 0; background: transparent; backdrop-filter: none; padding: 1.6rem; }
+  .tile--doctor { grid-row: auto; min-height: 260px; }
 }
 @media (max-width: 560px) {
   .home-hero__actions .btn { width: 100%; }
